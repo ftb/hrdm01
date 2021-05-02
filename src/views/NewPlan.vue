@@ -1,5 +1,5 @@
 <template>
   <div>
-    ciao
+    new plan
   </div>
 </template>

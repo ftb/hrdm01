@@ -86,32 +86,19 @@
       </DisclosurePanel>
     </Disclosure>
 
-    <nav class="hidden bg-white border-b border-gray-200 lg:flex" aria-label="Breadcrumb">
-      <ol class="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8">
-        <li class="flex">
-          <div class="flex items-center">
-            <a href="#" class="text-gray-400 hover:text-gray-500">
-              <HomeIcon class="flex-shrink-0 h-5 w-5" aria-hidden="true" />
-              <span class="sr-only">Home</span>
-            </a>
-          </div>
-        </li>
-        <li v-for="item in breadcrumbs" :key="item.name" class="flex">
-          <div class="flex items-center">
-            <svg class="flex-shrink-0 w-6 h-full text-gray-200" preserveAspectRatio="none" viewBox="0 0 24 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
-            </svg>
-            <a :href="item.href" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
-          </div>
-        </li>
-      </ol>
-    </nav>
+    <header class="bg-white shadow">
+      <div class="max-w-7xl mx-auto py-2 px-4 sm:px-4 lg:px-8">
+        <h1 class="text-1xl font-bold text-gray-900">
+          Dashboard
+        </h1>
+      </div>
+    </header>
+
     <main>
-      <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <!--aggiunto px-4 per allineare i template, se no la stessa misura va gestita in ognuno -->
+      <div class="max-w-7xl mx-auto py-2 px-4 sm:px-4 lg:px-8">
         <!-- Replace with your content -->
-        <div class="px-4 py-6 sm:px-0">
-          <div class="border-1 border-dashed border-gray-200 rounded-lg h-96" />
-        </div>
+        <router-view />
         <!-- /End replace -->
       </div>
     </main>
@@ -122,13 +109,17 @@
 import { ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-import { HomeIcon } from '@heroicons/vue/solid'
-
-const navigation = ['Dashboard', 'Plans List', 'New Plan', 'Settings']
-const profile = ['Your Profile', 'Account Settings', 'Sign out']
-const breadcrumbs = [
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Project Nero', href: '#', current: true }
+// TODO aggiungere url per ciascun menu in navigation
+const navigation = [
+  'Dashboard',
+  'Plans List',
+  'New Plan',
+  'Settings'
+]
+const profile = [
+  'Your Profile',
+  'Account Settings',
+  'Sign out'
 ]
 
 export default {
@@ -142,8 +133,7 @@ export default {
     MenuItems,
     BellIcon,
     MenuIcon,
-    XIcon,
-    HomeIcon
+    XIcon
   },
   setup () {
     const open = ref(false)
@@ -151,8 +141,7 @@ export default {
     return {
       navigation,
       profile,
-      open,
-      breadcrumbs
+      open
     }
   }
 }
