@@ -57,10 +57,10 @@
 
       <DisclosurePanel class="md:hidden">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <template v-for="(item, itemIdx) in navigation" :key="item">
-            <template v-if="(itemIdx === 0)">
+          <template v-for="(item) in navigation" :key="item">
+            <template v-if="(item.name ===  $route.name )">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <router-link class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" to= "#" >{{ item.name }} {{itemIdx}}</router-link>
+              <div class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">{{ item.name }}</div>
             </template>
             <router-link v-else  class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" :to= "item.rname"> {{ item.name }} {{itemIdx}}</router-link>
         </template>
