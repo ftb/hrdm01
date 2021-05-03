@@ -9,12 +9,12 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <template v-for="(item, itemIdx) in navigation" :key="item">
-                  <template v-if="(itemIdx === 0)">
+                <template v-for="(item) in navigation" :key="item">
+                  <template v-if="(item.name ===  $route.name )">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">{{ item }}</a>
+                    <div class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">{{ item.name }} </div>
                   </template>
-                  <a v-else href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ item }}</a>
+                  <router-link v-else href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" :to= "item.rname">{{ item.name }}</router-link>
                 </template>
               </div>
             </div>
@@ -60,10 +60,10 @@
           <template v-for="(item, itemIdx) in navigation" :key="item">
             <template v-if="(itemIdx === 0)">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">{{ item }}</a>
+              <router-link class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" to= "#" >{{ item.name }} {{itemIdx}}</router-link>
             </template>
-            <a v-else href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{ item }}</a>
-          </template>
+            <router-link v-else  class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" :to= "item.rname"> {{ item.name }} {{itemIdx}}</router-link>
+        </template>
         </div>
         <div class="pt-4 pb-3 border-t border-gray-700">
           <div class="flex items-center px-5">
@@ -89,7 +89,7 @@
     <header class="bg-white shadow">
       <div class="max-w-7xl mx-auto py-2 px-4 sm:px-4 lg:px-8">
         <h1 class="text-1xl font-bold text-gray-900">
-          Dashboard
+          {{ $route.name }}
         </h1>
       </div>
     </header>
@@ -110,12 +110,19 @@ import { ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 // TODO aggiungere url per ciascun menu in navigation
-const navigation = [
+/* const navigation = [
   'Dashboard',
   'Plans List',
   'New Plan',
   'Settings'
+] */
+const navigation = [
+  { name: 'Dashboard', rname: 'Dashboard' },
+  { name: 'Plans List', rname: 'PlansList' },
+  { name: 'New Plan', rname: 'NewPlan' },
+  { name: 'Settings', rname: '#' }
 ]
+
 const profile = [
   'Your Profile',
   'Account Settings',

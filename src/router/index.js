@@ -11,18 +11,23 @@ const routes = [
     component: Dashboard
   },
   {
+    path: '/Dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
     path: '/PlansList',
-    name: 'PlansList',
+    name: 'Plans List',
     component: PlansList
   },
   {
     path: '/NewPlan',
-    name: 'NewPlan',
+    name: 'New Plan',
     component: NewPlan
   },
   {
     path: '/UserSettings',
-    name: 'UserSettings',
+    name: 'User Settings',
     component: UserSettings
   }
 
