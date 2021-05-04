@@ -124,7 +124,6 @@ const navigation = [
 ]
 
 const profile = [
-  'Your Profile',
   'Account Settings',
   'Sign out'
 ]

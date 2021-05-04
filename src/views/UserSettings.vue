@@ -1,5 +1,5 @@
 <template>
   <div>
-    user settings
+    this is a placeholder for the user settings page
   </div>
 </template>
