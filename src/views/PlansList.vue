@@ -1,5 +1,5 @@
 <template>
   <div>
-    plans list
+    this is only a placeholder for the plans list page
   </div>
 </template>

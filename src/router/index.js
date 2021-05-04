@@ -3,12 +3,13 @@ import Dashboard from '../views/Dashboard.vue'
 import PlansList from '../views/PlansList.vue'
 import NewPlan from '../views/NewPlan.vue'
 import UserSettings from '../views/UserSettings.vue'
+import Home from '../views/Home.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Dashboard',
-    component: Dashboard
+    name: 'Home',
+    component: Home
   },
   {
     path: '/Dashboard',

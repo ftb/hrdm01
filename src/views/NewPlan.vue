@@ -1,5 +1,5 @@
 <template>
   <div>
-    new plan
+    this is only a placeholder for the new plan page
   </div>
 </template>
